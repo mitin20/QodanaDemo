@@ -29,3 +29,4 @@ profile:
 linter: jetbrains/qodana-jvm-community:2024.1
 
 #fixesStrategy: apply
+fixesStrategy: cleanup/apply
