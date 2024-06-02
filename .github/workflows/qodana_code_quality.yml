@@ -29,3 +29,4 @@ jobs:
           push-fixes: pull-request        
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
