@@ -2,10 +2,11 @@ name: Qodana
 on:
   workflow_dispatch:
   pull_request:
-    branches: [master] 
   push:
     branches: # Specify your branches here
+      - main # The 'main' branch
       - master # The 'master' branch
+      - 'releases/*' # The release branches
 
 jobs:
   qodana:
@@ -21,11 +22,10 @@ jobs:
           fetch-depth: 0  # a full history is required for pull request analysis
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2024.1
-        with:
-          pr-mode: false
-          args: --apply-fixes
+        with: 
+          pr-mode: false 
+          args: --apply-fixes 
           push-fixes: pull-request        
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
